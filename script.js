@@ -15,21 +15,15 @@ function checkNumber() {
       document.querySelector('.number').textContent = ranNumber;
       document.querySelector('body').style.backgroundColor = '#60b347';
       document.querySelector('.number').style.width = '30rem';
-      var snd = new Audio('TB7L64W-winning.mp3'); // buffers automatically when created
+      var snd = new Audio('TB7L64W-winning.mp3');
       snd.play();
       if (highscore < score) {
         highscore = score;
         document.querySelector('.highscore').textContent = highscore;
       }
-    } else if (ranNumber < guess) {
-      document.querySelector('.message').textContent = '📈 TOO HIGH';
-      score !== 0 ? score-- : (score = 0);
-      document.querySelector('.score').textContent = score;
-      if (score === 0) {
-        document.querySelector('.message').textContent = '🏳 YOU LOSE!!! ';
-      }
     } else {
-      document.querySelector('.message').textContent = '📉 TOO LOW';
+      document.querySelector('.message').textContent =
+        ranNumber < guess ? '📈 TOO HIGH' : '📉 TOO LOW';
       score !== 0 ? score-- : (score = 0);
       document.querySelector('.score').textContent = score;
       if (score === 0) {
